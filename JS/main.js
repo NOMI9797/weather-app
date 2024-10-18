@@ -133,7 +133,4 @@ function populateTable(data) {
     tableBody.appendChild(row);
 }
 
-// Function to update charts (you can implement this function)
-function updateCharts(data) {
-    // Implement your chart update logic here
-}
+
