@@ -57,7 +57,8 @@
     </script>
     <style>
         .gradient-bg {
-            background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+            /* Changed the gradient colors */
+            background: linear-gradient(90deg, rgba(94, 44, 255, 1) 0%, rgba(248, 89, 162, 1) 100%);
         }
 
         .loader {
@@ -86,6 +87,32 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Modern table styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        thead th {
+            background-color: #4f46e5;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        tbody tr:hover {
+            background-color: #edf2f7;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -111,12 +138,12 @@
                 <h2 class="text-2xl font-semibold mb-4 gradient-bg text-white text-center p-2 rounded">5-Day Weather Forecast for <span id="forecastCityName">Islamabad</span></h2>
                 <button id="chatbot-btn" class="mb-4 px-4 py-2 bg-blue-500 text-white rounded" onclick="openChatModal()">Chat with Bot</button>
                 <div class="overflow-x-auto">
-                    <table class="min-w-full border border-gray-300">
-                        <thead class="bg-gray-200">
+                    <table class="min-w-full">
+                        <thead>
                             <tr>
-                                <th class="border-b-2 p-2">Date</th>
-                                <th class="border-b-2 p-2">Temperature (°C)</th>
-                                <th class="border-b-2 p-2">Weather Condition</th>
+                                <th>Date</th>
+                                <th>Temperature (°C)</th>
+                                <th>Weather Condition</th>
                             </tr>
                         </thead>
                         <tbody id="forecastTable">
@@ -150,5 +177,5 @@
     </div>
 
     <script src="tableforecast.js"></script>
-</body>  
+</body>
 </html>
