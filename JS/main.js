@@ -1,6 +1,6 @@
 // Your OpenWeather API key
 const apiKey = 'cd9d4a7836d541deba04f3bf9536640b';
-
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 // Select elements
 const cityInput = document.getElementById('city-input');
 const searchBtn = document.getElementById('search-btn');
@@ -16,7 +16,17 @@ const tablesBtn = document.getElementById('tables-btn');
 // Global variable to hold weather data
 let currentWeatherData = null;
 let forecastData = {};
+// Make sure to include these imports:
+// import { GoogleGenerativeAI } from "@google/generative-ai";
+const genAI = new GoogleGenerativeAI("AIzaSyATXnib5ssAlwx88Ys3wBiVQ3T0Y6BFJhI");
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
+const prompt = "Write a story about a magic backpack.";
+
+const result = await model.generateContent(prompt);
+const response=await result.response;
+console.log(response);
+console.log(result);
 // Check for saved weather data in localStorage
 window.addEventListener('DOMContentLoaded', () => {
     const savedWeatherData = localStorage.getItem('currentWeatherData');
